@@ -7,6 +7,7 @@ import Menus from './Pages/Menus/Menus';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import AuthProvider from './context/AuthProvider/AuthProvider';
+import PrivateRoute from './Pages/Login/ProvateRoute/PrivateRoute';
 
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
             <Route path='/home' element={<Home></Home>}>
 
             </Route>
-            <Route path='/menus' element={<Menus></Menus>}>
+            <Route path='/menus' element={<PrivateRoute><Menus></Menus></PrivateRoute>}>
 
             </Route>
             <Route path='/login' element={<Login></Login>}>

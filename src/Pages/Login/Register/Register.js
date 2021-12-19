@@ -84,10 +84,12 @@ const Register = () => {
                     isLoading && <CircularProgress />
                 }
                 {
-                    user?.email && <Alert severity="success">This is a success alert — check it out!</Alert>
+                    user?.email && <Alert style={{color:'green'}} severity="success">Registration successful!</Alert>
+
                 }
                 {
-                    authError && <Alert severity="error">This is an error alert — check it out!</Alert>
+                    authError && <Alert style={{color:'red'}} severity="error">{authError}</Alert>
+
                 }
             </Container>
         </div>
