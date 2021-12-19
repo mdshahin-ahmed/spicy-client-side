@@ -1,0 +1,19 @@
+.get-food-text-wrap{
+    background: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.7)) , url("../../../image/1.jpg") no-repeat center top;
+    background-size: cover;
+    background-attachment: fixed;
+    color: white;
+}
+.get-food-wrap p{
+    color: rgb(211, 209, 209);
+}
+.get-food hr{
+    background: #f77402;
+    width: 100px;
+    height: 3px;
+    opacity: 1;
+    margin: auto;
+}
+.get-food-icon{
+    color: #f77402;
+}

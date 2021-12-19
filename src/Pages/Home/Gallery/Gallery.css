@@ -1,0 +1,21 @@
+/* .gallery-wrap{
+    background:rgba(0, 0, 0, 0.877);
+    color: white;
+} */
+.gallery-images img:hover{
+    opacity: 1;
+    transition: all 0.8s ease-in-out;
+}
+.overflow-hidden img{
+    transform: scale(1.01);
+}
+.overflow-hidden:hover img{
+    transform: scale(1.2);
+}
+.gallery hr{
+    background: #f77402;
+    width: 100px;
+    height: 3px;
+    opacity: 1;
+    margin: auto;
+}
