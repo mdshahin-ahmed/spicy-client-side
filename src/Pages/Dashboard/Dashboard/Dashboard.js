@@ -22,6 +22,7 @@ import {
     Link
 } from "react-router-dom";
 import useAuth from '../../../hooks/useAuth';
+import { Button } from 'react-bootstrap';
 
 const drawerWidth = 240;
 
@@ -29,7 +30,7 @@ function Dashboard(props) {
     const { window } = props;
     const [mobileOpen, setMobileOpen] = React.useState(false);
 
-    const { admin } = useAuth();
+    const { admin, logOut } = useAuth();
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -42,9 +43,9 @@ function Dashboard(props) {
             <Link style={{ textAlign: 'left', marginLeft: '10px' }} className='d-block text-decoration-none' to='/home'>
                 Home
             </Link>
-            <Link style={{ textAlign: 'left', marginLeft: '10px' }} className='d-block text-decoration-none' to='/dashboard/myOrders'>
-                My Orders
-            </Link>
+
+
+
             {
                 admin && <Box>
                     <Link style={{ textAlign: 'left', marginLeft: '10px' }} className='d-block text-decoration-none' to='/dashboard/makeAdmin'>
@@ -53,19 +54,26 @@ function Dashboard(props) {
                     <Link style={{ textAlign: 'left', marginLeft: '10px' }} className='d-block text-decoration-none' to='/dashboard/addMenu'>
                         Add Menu
                     </Link>
+                    <Link style={{ textAlign: 'left', marginLeft: '10px' }} className='d-block text-decoration-none' to='/dashboard/manageAllProducts'>
+                        Manage All Products
+                    </Link>
+                    <Link style={{ textAlign: 'left', marginLeft: '10px' }} className='d-block text-decoration-none' to='/dashboard/manageOrders'>
+                        Manage Orders
+                    </Link>
                 </Box>
             }
 
-            <List>
-                {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                    <ListItem button key={text}>
-                        <ListItemIcon>
-                            {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                        </ListItemIcon>
-                        <ListItemText primary={text} />
-                    </ListItem>
-                ))}
-            </List>
+            {
+                !admin && <Box>
+                    <Link style={{ textAlign: 'left', marginLeft: '10px' }} className='d-block text-decoration-none' to='/dashboard/myOrders'>
+                        My Orders
+                    </Link>
+                </Box>
+            }
+
+            <Button onClick={logOut} style={{ color: 'black' }} variant="text">Log Out</Button>
+
+
         </div>
     );
 

@@ -1,11 +1,9 @@
 import React from 'react';
-import { Button, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Card } from 'react-bootstrap';
 
+const ManageOrder = ({ product, handleDeleteProduct }) => {
+    const { _id, image, name, price, description,status } = product;
 
-
-const Menu = ({ menu }) => {
-    const { _id, name, image, price, description } = menu;
     return (
         <div className="col-12 col-md-4 mb-5">
             <Card className='shadow'>
@@ -16,13 +14,16 @@ const Menu = ({ menu }) => {
                     <Card.Text>
                         {description}
                     </Card.Text>
-                    <Link to={`/menus/orderPlace/${_id}`}>
-                        <Button variant="primary">Order Now</Button>
-                    </Link>
+
+                    <div className='d-flex justify-content-around'>
+                        <button className="btn btn-info text-black mb-3">{status}</button>
+                        <button onClick={() => handleDeleteProduct(_id)} className="btn btn-danger mb-3">Delete</button>
+                    </div>
+
                 </Card.Body>
             </Card>
         </div>
     );
 };
 
-export default Menu;
+export default ManageOrder;

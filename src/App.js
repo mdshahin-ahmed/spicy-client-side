@@ -14,6 +14,9 @@ import AdminRoute from './Pages/Login/AdminRoute/AdminRoute';
 import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
 import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
 import AddMenu from './Pages/Dashboard/AddMenu/AddMenu';
+import OrderPlace from './Pages/OrderPlace/OrderPlace';
+import ManageAllProducts from './Pages/Dashboard/ManageAllProducts/ManageAllProducts';
+import ManageOrders from './Pages/Dashboard/ManageOrders/ManageOrders';
 
 
 function App() {
@@ -35,6 +38,10 @@ function App() {
 
             </Route>
             <Route path='/register' element={<Register></Register>}>
+
+            </Route>
+
+            <Route path='/menus/orderPlace/:id' element={<PrivateRoute><OrderPlace></OrderPlace></PrivateRoute>}>
 
             </Route>
 
@@ -67,6 +74,20 @@ function App() {
 
                 <AdminRoute>
                   <AddMenu />
+                </AdminRoute>
+              }>
+              </Route>
+              <Route exact path='/dashboard/manageAllProducts' element={
+
+                <AdminRoute>
+                  <ManageAllProducts />
+                </AdminRoute>
+              }>
+              </Route>
+              <Route exact path='/dashboard/manageOrders' element={
+
+                <AdminRoute>
+                  <ManageOrders />
                 </AdminRoute>
               }>
               </Route>
