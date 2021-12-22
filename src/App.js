@@ -7,7 +7,13 @@ import Menus from './Pages/Menus/Menus';
 import Login from './Pages/Login/Login/Login';
 import Register from './Pages/Login/Register/Register';
 import AuthProvider from './context/AuthProvider/AuthProvider';
-import PrivateRoute from './Pages/Login/ProvateRoute/PrivateRoute';
+import Dashboard from './Pages/Dashboard/Dashboard/Dashboard';
+import PrivateRoute from './Pages/Login/PrivateRoute/PrivateRoute';
+import DashboardHome from './Pages/Dashboard/DashboardHome/DashboardHome';
+import AdminRoute from './Pages/Login/AdminRoute/AdminRoute';
+import MyOrders from './Pages/Dashboard/MyOrders/MyOrders';
+import MakeAdmin from './Pages/Dashboard/MakeAdmin/MakeAdmin';
+import AddMenu from './Pages/Dashboard/AddMenu/AddMenu';
 
 
 function App() {
@@ -22,7 +28,7 @@ function App() {
             <Route path='/home' element={<Home></Home>}>
 
             </Route>
-            <Route path='/menus' element={<PrivateRoute><Menus></Menus></PrivateRoute>}>
+            <Route path='/menus' element={<Menus></Menus>}>
 
             </Route>
             <Route path='/login' element={<Login></Login>}>
@@ -31,6 +37,45 @@ function App() {
             <Route path='/register' element={<Register></Register>}>
 
             </Route>
+
+            {/* dashboard route */}
+
+            <Route path='/dashboard' element={
+              <PrivateRoute>
+                <Dashboard></Dashboard>
+              </PrivateRoute>
+            }>
+
+              <Route exact path='/dashboard' element={
+
+                <DashboardHome></DashboardHome>
+              }>
+              </Route>
+              <Route exact path='/dashboard/myOrders' element={
+
+                <MyOrders />
+              }>
+              </Route>
+              <Route exact path='/dashboard/makeAdmin' element={
+
+                <AdminRoute>
+                  <MakeAdmin />
+                </AdminRoute>
+              }>
+              </Route>
+              <Route exact path='/dashboard/addMenu' element={
+
+                <AdminRoute>
+                  <AddMenu />
+                </AdminRoute>
+              }>
+              </Route>
+
+
+
+
+            </Route>
+
 
           </Routes>
         </Router>

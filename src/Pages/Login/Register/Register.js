@@ -1,13 +1,14 @@
-import { AlertTitle, Button, CircularProgress, Container, TextField } from '@mui/material';
+import { Button, CircularProgress, Container, TextField } from '@mui/material';
 import React, { useState } from 'react';
 import { Alert } from 'react-bootstrap';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import './Register.css';
 
 const Register = () => {
     const { user, registerUser, isLoading, authError } = useAuth();
     const [loginData, setLoginData] = useState();
+    const navigate = useNavigate();
 
     const handleOnChange = e => {
         const field = e.target.name;
@@ -22,7 +23,7 @@ const Register = () => {
             return;
         }
 
-        registerUser(loginData.email, loginData.password)
+        registerUser(loginData.email, loginData.password, loginData.name, navigate)
         e.preventDefault();
     }
     return (
@@ -32,6 +33,16 @@ const Register = () => {
                 {
                     !isLoading &&
                     <form onSubmit={handleLoginSubmit}>
+                        <TextField
+                            sx={{ width: '40%', m: 1 }}
+                            id="standard-basic"
+                            name="name"
+                            type='text'
+                            onChange={handleOnChange}
+                            required
+                            label="Your Name" variant="standard"
+                        />
+                        <br />
                         <TextField
                             sx={{ width: '40%', m: 1 }}
                             id="standard-basic"
@@ -84,11 +95,11 @@ const Register = () => {
                     isLoading && <CircularProgress />
                 }
                 {
-                    user?.email && <Alert style={{color:'green'}} severity="success">Registration successful!</Alert>
+                    user?.email && <Alert style={{ color: 'green' }} severity="success">Registration successful!</Alert>
 
                 }
                 {
-                    authError && <Alert style={{color:'red'}} severity="error">{authError}</Alert>
+                    authError && <Alert style={{ color: 'red' }} severity="error">{authError}</Alert>
 
                 }
             </Container>

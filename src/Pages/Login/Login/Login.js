@@ -7,7 +7,7 @@ import './Login.css';
 
 const Login = () => {
 
-    const { user, loginUser, isLoading, authError } = useAuth();
+    const { user, loginUser, isLoading, authError, signInWithGoogle } = useAuth();
 
     const [loginData, setLoginData] = useState();
 
@@ -24,6 +24,10 @@ const Login = () => {
     const handleLoginSubmit = e => {
         loginUser(loginData.email, loginData.password, location, navigate);
         e.preventDefault();
+    }
+
+    const handleGoogleSignIn = ()=>{
+        signInWithGoogle(location, navigate)
     }
 
     return (
@@ -68,8 +72,13 @@ const Login = () => {
                                 New User? Please Register
                             </Button>
                         </NavLink>
-                    </form>
+                    </form>                    
                 }
+                
+                {
+                    !isLoading && <Button onClick={handleGoogleSignIn} variant='contained'>Google Sign In</Button>
+                }
+
                 {
                     isLoading && <CircularProgress />
                 }

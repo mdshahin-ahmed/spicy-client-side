@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Nav, Navbar } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Button, Container, Nav, Navbar } from 'react-bootstrap';
+import { Link, NavLink } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import logo from '../../../image/logo.png'
 
@@ -16,21 +16,25 @@ const Header = () => {
                     </Navbar.Brand>
                     <Navbar.Toggle aria-controls="navbarScroll" style={{ outline: '0px', color: 'transparent' }} />
                     <Navbar.Collapse id="navbarScroll">
-                        <Nav className="ms-auto">
+                        <Nav className="m-auto">
                             <Nav.Link as={Link} className='text-dark' style={{ fontSize: '20px' }} to="/home">Home</Nav.Link>
                             <Nav.Link as={Link} className='text-dark' style={{ fontSize: '20px' }} to="/menus">Menus</Nav.Link>
+                            {
+                                user.email && <Nav.Link as={Link} className='text-dark' style={{ fontSize: '20px' }} to="/dashboard">Dashboard</Nav.Link>
+
+                            }
                         </Nav>
                         <Nav>
 
                             {
-                                user?.email
-                                    ?
-                                    <Nav.Link as={Link} className='text-dark' style={{ fontSize: '20px' }} to="/login">
-                                        <button className="btn btn-primary" onClick={logOut}>Logout</button>
-                                    </Nav.Link>
+                                user?.email && <span style={{ color: 'white', marginRight: '10px', alignSelf: 'center' }}>Welcome! {user.displayName}</span>
+                            }
+                            {
+                                user?.email ?
+                                    <Button onClick={logOut}>Log Out</Button>
                                     :
-                                    <Nav.Link as={Link} className='text-dark' style={{ fontSize: '20px' }} to="/login">
-                                        <button className="btn btn-primary">Login</button>
+                                    <Nav.Link as={NavLink} to="/login">
+                                        <Button>Login</Button>
                                     </Nav.Link>
                             }
 
