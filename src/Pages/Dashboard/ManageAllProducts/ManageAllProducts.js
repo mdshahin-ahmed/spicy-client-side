@@ -5,7 +5,7 @@ const ManageAllProducts = () => {
 
     const [menus, setMenus] = useState([]);
     useEffect(() => {
-        fetch('https://secret-basin-80045.herokuapp.com/menus')
+        fetch('http://localhost:5000/menus')
             .then(res => res.json())
             .then(data => setMenus(data))
     }, [menus]);
@@ -14,7 +14,7 @@ const ManageAllProducts = () => {
         console.log(id);
         const proceed = window.confirm('Are you sure, You Want to delete?');
         if (proceed) {
-            const url = `https://secret-basin-80045.herokuapp.com/menus/${id}`;
+            const url = `http://localhost:5000/menus/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -28,12 +28,12 @@ const ManageAllProducts = () => {
     }
 
     return (
-        <div className="inventory py-5">
+        <div className="inventory pb-5">
             <div className="container">
                 {/* <!-- section title --> */}
                 <div className="row mb-5">
-                    <div className="col d-flex flex-wrap text-uppercase justify-content-center">
-                        
+                    <div className="">
+                        <h2>Manage Menus</h2>
                     </div>
                 </div>
                 {/* <!-- section title end --> */}

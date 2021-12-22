@@ -1,6 +1,15 @@
+
 .register-wrap{
     height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.507),rgba(0, 0, 0, 0.589)) ,url('../../../image/register.jpg') no-repeat center center / cover;
+    color: white;
 }
-.register-form-wrap{
-    /* margin-top: -100px; */
+.register_button{
+    background:  rgb(92, 186, 240) !important;
+    color: black !important;
+}
+.login_link{
+    color: rgb(0, 238, 255) !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }

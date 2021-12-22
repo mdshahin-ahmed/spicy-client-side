@@ -9,7 +9,7 @@ const Menus = () => {
     const [menus, setMenus] = useState([]);
 
     useEffect(() => {
-        fetch('https://secret-basin-80045.herokuapp.com/menus')
+        fetch('http://localhost:5000/menus')
             .then(res => res.json())
             .then(data => setMenus(data))
     }, []);
@@ -17,7 +17,6 @@ const Menus = () => {
     return (
         <div>
             <Header />
-            <h2>Inside Menu</h2>
 
             <div className="container">
                 <div className="row">

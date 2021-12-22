@@ -27,7 +27,7 @@ const Header = () => {
                         <Nav>
 
                             {
-                                user?.email && <span style={{ color: 'white', marginRight: '10px', alignSelf: 'center' }}>Welcome! {user.displayName}</span>
+                                user?.email && <span style={{ color: '', marginRight: '10px', alignSelf: 'center' }}>Welcome! {user.displayName}</span>
                             }
                             {
                                 user?.email ?

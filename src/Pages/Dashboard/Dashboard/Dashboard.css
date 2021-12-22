@@ -1,0 +1,23 @@
+.dashboard a{
+background: rgb(255, 255, 255);
+margin-left: 0px;
+border-bottom: 1px solid rgb(0, 0, 0);
+padding: 20px;
+color: rgba(0, 0, 0, 0.904);
+font-weight: bold;
+}
+.dashboard a:hover{
+    background: grey;
+    color: rgb(255, 253, 249);
+    transition: all .6s;
+}
+.logout_button{
+    background: rgb(237, 237, 240);
+    width: 100%;
+    padding: 10px;
+    transition: all .6s;
+}
+.logout_button:hover{
+    background: rgb(117, 117, 117);
+    color: white !important;
+}

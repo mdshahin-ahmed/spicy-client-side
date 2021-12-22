@@ -12,7 +12,7 @@ import Paper from '@mui/material/Paper';
 const ManageOrders = () => {
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        fetch('https://secret-basin-80045.herokuapp.com/orders')
+        fetch('http://localhost:5000/orders')
             .then(res => res.json())
             .then(data => setProducts(data))
     }, [products]);
@@ -20,7 +20,7 @@ const ManageOrders = () => {
     const handleDeleteProduct = id => {
         const proceed = window.confirm('Are you sure, You Want to delete?');
         if (proceed) {
-            const url = `https://secret-basin-80045.herokuapp.com/orders/${id}`;
+            const url = `http://localhost:5000/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -33,15 +33,13 @@ const ManageOrders = () => {
         }
     }
     return (
-
         <div>
-            <div className="inventory py-5">
+            <div className="inventory pb-5">
                 <div className="container">
                     {/* <!-- section title --> */}
                     <div className="row mb-5">
-                        <div className="col d-flex flex-wrap text-uppercase justify-content-center">
-                            <h1 className="font-weight-bold align-self-center mx-1 mb-0">All</h1>
-                            <h1 className="section-title-special bg-primary mx-1">Orders</h1>
+                        <div className="">
+                            <h1 className="">All Orders</h1>
                         </div>
                     </div>
                     {/* <!-- section title end --> */}

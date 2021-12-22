@@ -9,7 +9,7 @@ const OrderPlace = () => {
     const { id } = useParams();
 
     useEffect(() => {
-        const url = `https://secret-basin-80045.herokuapp.com/menus/${id}`
+        const url = `http://localhost:5000/menus/${id}`
         fetch(url)
             .then(res => res.json())
             .then(productData => setProduct(productData))
@@ -23,7 +23,7 @@ const OrderPlace = () => {
         const newData = { ...data, price, name, image, description }
         console.log(newData);
         newData.status = 'Pending...';
-        fetch('https://secret-basin-80045.herokuapp.com/orders', {
+        fetch('http://localhost:5000/orders', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

@@ -34,7 +34,7 @@ const Register = () => {
                     !isLoading &&
                     <form onSubmit={handleLoginSubmit}>
                         <TextField
-                            sx={{ width: '40%', m: 1 }}
+                            sx={{ width: '40%', m: 1, background:'white', borderRadius:'5px' }}
                             id="standard-basic"
                             name="name"
                             type='text'
@@ -44,7 +44,7 @@ const Register = () => {
                         />
                         <br />
                         <TextField
-                            sx={{ width: '40%', m: 1 }}
+                            sx={{ width: '40%', m: 1, background:'white', borderRadius:'5px' }}
                             id="standard-basic"
                             name="email"
                             type='email'
@@ -54,7 +54,7 @@ const Register = () => {
                         />
                         <br />
                         <TextField
-                            sx={{ width: '40%', m: 1 }}
+                            sx={{ width: '40%', m: 1, background:'white', borderRadius:'5px' }}
                             id="standard-basic"
                             label="Your Password"
                             required
@@ -65,7 +65,7 @@ const Register = () => {
                         />
                         <br />
                         <TextField
-                            sx={{ width: '40%', m: 1 }}
+                            sx={{ width: '40%', m: 1, background:'white', borderRadius:'5px' }}
                             id="standard-basic"
                             label="Re-type Your Password"
                             required
@@ -75,8 +75,8 @@ const Register = () => {
                             variant="standard"
                         />
                         <br />
-                        <Button
-                            sx={{ width: '40%', m: 1 }}
+                        <Button className='register_button'
+                            sx={{ width: '40%', m: 1, background:'white', borderRadius:'5px' }}
                             type='submit'
                             variant='contained'>Register
                         </Button>
@@ -85,7 +85,7 @@ const Register = () => {
                             style={{ textDecoration: 'none' }}
                             to='/login'
                         >
-                            <Button variant='text'>
+                            <Button variant='text' className='login_link'>
                                 Already Registered? Please Login
                             </Button>
                         </NavLink>

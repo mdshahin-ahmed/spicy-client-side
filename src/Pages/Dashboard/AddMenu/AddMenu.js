@@ -46,17 +46,9 @@ const AddMenu = () => {
                 <input onChange={e => setPrice(e.target.value)} className='form-control mb-4' required placeholder='price' type="number" />
                 <input onChange={e => setDescription(e.target.value)} className='form-control mb-4' required placeholder='description' type="text" />
                 <input onChange={e => setImage(e.target.files[0])} className='form-control mb-4' accept='image/*' required type="file" />
-                <input className='btn btn-primary mb-4' type="submit" />
+                <input className='btn btn-primary mb-4' type="submit" value="Add Menu" />
             </div>
 
-
-                {/* <div style={{ maxWidth: '500px', margin: '0 auto' }}>
-                    <input className='form-control mb-4' placeholder='Product Name' {...register("name", { required: true })} />
-                    <input className='form-control mb-4' placeholder='Price' type="number" {...register("price", { required: true })} />
-                    <textarea className='form-control mb-4' placeholder='Description' {...register("description", { required: true })} />
-                    <input className='form-control mb-4' accept='image/*' type='file' placeholder='Img url' {...register("img", { required: true })} />
-                    <input className='btn btn-primary mb-4' type="submit" />
-                </div> */}
             </form>
         </div>
     );

@@ -6,15 +6,10 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
 import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import MailIcon from '@mui/icons-material/Mail';
 import MenuIcon from '@mui/icons-material/Menu';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
+import './Dashboard.css';
 
 
 import {
@@ -37,10 +32,10 @@ function Dashboard(props) {
     };
 
     const drawer = (
-        <div>
+        <div className='dashboard'>
             <Toolbar />
             <Divider />
-            <Link style={{ textAlign: 'left', marginLeft: '10px' }} className='d-block text-decoration-none' to='/home'>
+            <Link style={{ textAlign: 'left' }} className='d-block text-decoration-none' to='/home'>
                 Home
             </Link>
 
@@ -48,16 +43,16 @@ function Dashboard(props) {
 
             {
                 admin && <Box>
-                    <Link style={{ textAlign: 'left', marginLeft: '10px' }} className='d-block text-decoration-none' to='/dashboard/makeAdmin'>
+                    <Link style={{ textAlign: 'left'}} className='d-block text-decoration-none' to='/dashboard/makeAdmin'>
                         Make Admin
                     </Link>
-                    <Link style={{ textAlign: 'left', marginLeft: '10px' }} className='d-block text-decoration-none' to='/dashboard/addMenu'>
+                    <Link style={{ textAlign: 'left'}} className='d-block text-decoration-none' to='/dashboard/addMenu'>
                         Add Menu
                     </Link>
-                    <Link style={{ textAlign: 'left', marginLeft: '10px' }} className='d-block text-decoration-none' to='/dashboard/manageAllProducts'>
+                    <Link style={{ textAlign: 'left'}} className='d-block text-decoration-none' to='/dashboard/manageAllProducts'>
                         Manage All Products
                     </Link>
-                    <Link style={{ textAlign: 'left', marginLeft: '10px' }} className='d-block text-decoration-none' to='/dashboard/manageOrders'>
+                    <Link style={{ textAlign: 'left'}} className='d-block text-decoration-none' to='/dashboard/manageOrders'>
                         Manage Orders
                     </Link>
                 </Box>
@@ -65,13 +60,13 @@ function Dashboard(props) {
 
             {
                 !admin && <Box>
-                    <Link style={{ textAlign: 'left', marginLeft: '10px' }} className='d-block text-decoration-none' to='/dashboard/myOrders'>
+                    <Link style={{ textAlign: 'left'}} className='d-block text-decoration-none' to='/dashboard/myOrders'>
                         My Orders
                     </Link>
                 </Box>
             }
 
-            <Button onClick={logOut} style={{ color: 'black' }} variant="text">Log Out</Button>
+            <Button onClick={logOut} style={{ color: 'black' }} variant="text" className='logout_button'>Log Out <i class="fas fa-sign-out-alt"></i></Button>
 
 
         </div>
@@ -89,7 +84,7 @@ function Dashboard(props) {
                     ml: { sm: `${drawerWidth}px` },
                 }}
             >
-                <Toolbar>
+                <Toolbar style={{background:'rgb(126, 126, 126)', textAlign:'center'}}>
                     <IconButton
                         color="inherit"
                         aria-label="open drawer"

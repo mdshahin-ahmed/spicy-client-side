@@ -4,6 +4,7 @@ import { Alert } from 'react-bootstrap';
 import { NavLink, useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import './Login.css';
+import google from '../../../../src/image/google.png';
 
 const Login = () => {
 
@@ -37,20 +38,20 @@ const Login = () => {
                 {
                     !isLoading &&
                     <form onSubmit={handleLoginSubmit}>
-                        <TextField
-                            sx={{ width: '40%', m: 1 }}
+                        <TextField style={{borderRadius:'5px'}}
+                            sx={{ width: '40%', m: 1, background:'white' }}
                             id="standard-basic"
                             name="email"
                             type='email'
                             onChange={handleOnChange}
                             required
-                            label="Your Email" variant="standard"
+                            label=". Your Email" variant="standard"
                         />
                         <br />
-                        <TextField
-                            sx={{ width: '40%', m: 1 }}
+                        <TextField style={{borderRadius:'5px'}}
+                            sx={{ width: '40%', m: 1, background:'white' }}
                             id="standard-basic"
-                            label="Your Password"
+                            label=". Your Password"
                             required
                             name="password"
                             onChange={handleOnChange}
@@ -58,7 +59,7 @@ const Login = () => {
                             variant="standard"
                         />
                         <br />
-                        <Button
+                        <Button className="login_button"
                             sx={{ width: '40%', m: 1 }}
                             type='submit'
                             variant='contained'>Login
@@ -68,7 +69,7 @@ const Login = () => {
                             style={{ textDecoration: 'none' }}
                             to='/register'
                         >
-                            <Button variant='text'>
+                            <Button variant='text' className='register_link mb-4 mt-3'>
                                 New User? Please Register
                             </Button>
                         </NavLink>
@@ -76,7 +77,7 @@ const Login = () => {
                 }
                 
                 {
-                    !isLoading && <Button onClick={handleGoogleSignIn} variant='contained'>Google Sign In</Button>
+                    !isLoading && <Button className='google_login' onClick={handleGoogleSignIn} variant='contained'> <img style={{height:"25px", marginRight:'5px'}} src={google} alt="" /> Google Sign In</Button>
                 }
 
                 {

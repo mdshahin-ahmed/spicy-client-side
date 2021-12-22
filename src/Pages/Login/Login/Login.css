@@ -1,6 +1,18 @@
 .login-wrap{
     height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.507),rgba(0, 0, 0, 0.589)) ,url('../../../image/6.jpg') no-repeat center center / cover;
+    color: white;
 }
-.login-form-wrap{
-    /* margin-top: -100px; */
+.login_button{
+    background:  rgb(92, 186, 240) !important;
+    color: black !important;
+}
+.register_link{
+    color: rgb(0, 238, 255) !important;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+.google_login{
+    background: rgb(255, 255, 255);
+    color:black;
 }

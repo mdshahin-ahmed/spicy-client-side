@@ -7,7 +7,7 @@ const MyOrders = () => {
     const [orders, setOrders] = useState([]);
 
     useEffect(() => {
-        const url = `https://secret-basin-80045.herokuapp.com/userOrders?email=${user.email}`
+        const url = `http://localhost:5000/userOrders?email=${user.email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setOrders(data))
@@ -16,7 +16,7 @@ const MyOrders = () => {
     const handleDeleteProduct = id => {
         const proceed = window.confirm('Are you sure, You Want to delete?');
         if (proceed) {
-            const url = `https://secret-basin-80045.herokuapp.com/orders/${id}`;
+            const url = `http://localhost:5000/orders/${id}`;
             fetch(url, {
                 method: 'DELETE'
             })
@@ -32,13 +32,13 @@ const MyOrders = () => {
     return (
         <div>
 
-            <div className="inventory py-5">
+            <div className="orders py-5">
                 <div className="container">
                     {/* <!-- section title --> */}
                     <div className="row mb-5">
                         <div className="col d-flex flex-wrap text-uppercase justify-content-center">
                             <h1 className="font-weight-bold align-self-center mx-1 mb-0">My</h1>
-                            <h1 className="section-title-special bg-primary mx-1">Orders</h1>
+                            <h1 className="section-title-special mx-1">Orders</h1>
                         </div>
                     </div>
                     {/* <!-- section title end --> */}
