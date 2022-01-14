@@ -5,6 +5,7 @@ import Gallery from '../Gallery/Gallery';
 import GetFood from '../GetFood/GetFood';
 import HomeMenu from '../HomeMenu/HomeMenu';
 import Footer from '../../Shared/Footer/Footer';
+import Reviews from '../../Dashboard/Reviews/Reviews';
 
 const Home = () => {
     return (
@@ -14,6 +15,7 @@ const Home = () => {
             <GetFood></GetFood>
             <HomeMenu></HomeMenu>
             <Gallery></Gallery>
+            <Reviews></Reviews>
             <Footer></Footer>
         </div>
     );

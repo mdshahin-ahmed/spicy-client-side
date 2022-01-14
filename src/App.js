@@ -17,6 +17,7 @@ import AddMenu from './Pages/Dashboard/AddMenu/AddMenu';
 import OrderPlace from './Pages/OrderPlace/OrderPlace';
 import ManageAllProducts from './Pages/Dashboard/ManageAllProducts/ManageAllProducts';
 import ManageOrders from './Pages/Dashboard/ManageOrders/ManageOrders';
+import Review from './Pages/Dashboard/Review/Review';
 
 
 function App() {
@@ -63,6 +64,15 @@ function App() {
                 <MyOrders />
               }>
               </Route>
+
+
+              <Route exact path='/dashboard/review' element={
+
+                <Review />
+              }>
+              </Route>
+
+
               <Route exact path='/dashboard/makeAdmin' element={
 
                 <AdminRoute>

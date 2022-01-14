@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import useAuth from '../../../hooks/useAuth';
 import ManageOrder from '../ManageOrder/ManageOrder';
 
@@ -32,7 +33,7 @@ const MyOrders = () => {
     return (
         <div>
 
-            <div className="orders py-5">
+            <div className="orders pb-5">
                 <div className="container">
                     {/* <!-- section title --> */}
                     <div className="row mb-5">
@@ -46,11 +47,14 @@ const MyOrders = () => {
                     {/* <!-- cars --> */}
                     <div className="row">
                         {
+                            orders.length ?
                             orders.map(product => <ManageOrder
                                 key={product._id}
                                 product={product}
                                 handleDeleteProduct={handleDeleteProduct}
                             ></ManageOrder>)
+                            :
+                            <Spinner style={{margin:'0 auto'}} animation="border" variant="primary" />
                         }
 
                     </div>

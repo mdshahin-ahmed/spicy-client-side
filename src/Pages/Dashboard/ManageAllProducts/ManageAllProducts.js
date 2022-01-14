@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Spinner } from 'react-bootstrap';
 import ManageProduct from '../ManageProduct/ManageProduct';
 
 const ManageAllProducts = () => {
@@ -41,11 +42,14 @@ const ManageAllProducts = () => {
                 {/* <!-- cars --> */}
                 <div className="row">
                     {
+                        menus.length ?
                         menus.map(product => <ManageProduct
                             key={product._id}
                             product={product}
                             handleDeleteProduct={handleDeleteProduct}
                         ></ManageProduct>)
+                        :
+                        <Spinner style={{margin:'0 auto'}} animation="border" variant="primary" />
                     }
 
                 </div>

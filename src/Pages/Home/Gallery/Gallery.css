@@ -5,6 +5,7 @@
 .gallery-images img:hover{
     opacity: 1;
     transition: all 0.8s ease-in-out;
+    cursor: pointer;
 }
 .overflow-hidden img{
     transform: scale(1.01);

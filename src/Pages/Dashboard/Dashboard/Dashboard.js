@@ -63,6 +63,9 @@ function Dashboard(props) {
                     <Link style={{ textAlign: 'left'}} className='d-block text-decoration-none' to='/dashboard/myOrders'>
                         My Orders
                     </Link>
+                    <Link style={{ textAlign: 'left'}} className='d-block text-decoration-none' to='/dashboard/review'>
+                        Review
+                    </Link>
                 </Box>
             }
 

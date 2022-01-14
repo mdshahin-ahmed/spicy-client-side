@@ -7,6 +7,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
+import { Spinner } from 'react-bootstrap';
 
 
 const ManageOrders = () => {
@@ -32,6 +33,24 @@ const ManageOrders = () => {
                 })
         }
     }
+
+    const handleStatus = id => {
+        const status = {
+            status: 'Approved'
+        }
+        const url = `https://secret-basin-80045.herokuapp.com/orders/${id}`;
+
+        fetch(url, {
+            method: 'PUT',
+            headers: {
+                'content-type': 'application/json'
+            },
+            body: JSON.stringify(status)
+        })
+            .then(res => res.json())
+            .then(data => console.log(data))
+    }
+
     return (
         <div>
             <div className="inventory pb-5">
@@ -58,22 +77,27 @@ const ManageOrders = () => {
                                 </TableRow>
                             </TableHead>
                             <TableBody>
-                                {products.map((row) => (
-                                    <TableRow
-                                        key={row.name}
-                                        sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
-                                    >
-                                        <TableCell component="th" scope="row">
-                                            {row.userName}
-                                        </TableCell>
-                                        <TableCell align="left">{row.email}</TableCell>
-                                        <TableCell align="left">{row.name}</TableCell>
-                                        <TableCell align="left">{row.price}</TableCell>
-                                        <TableCell align="left">{row.address}</TableCell>
-                                        <TableCell align="left"><button onClick={() => handleDeleteProduct(row._id)} className="btn btn-danger mb-3">Delete</button></TableCell>
-                                        <TableCell align="left"><button className="btn btn-info text-black mb-3">{row.status}</button></TableCell>
-                                    </TableRow>
-                                ))}
+                                {
+                                    products.length ?
+                                        products.map((row) => (
+                                            <TableRow
+                                                key={row.name}
+                                                sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+                                            >
+                                                <TableCell component="th" scope="row">
+                                                    {row.userName}
+                                                </TableCell>
+                                                <TableCell align="left">{row.email}</TableCell>
+                                                <TableCell align="left">{row.name}</TableCell>
+                                                <TableCell align="left">{row.price}</TableCell>
+                                                <TableCell align="left">{row.address}</TableCell>
+                                                <TableCell align="left"><button onClick={() => handleDeleteProduct(row._id)} className="btn btn-danger mb-3">Delete</button></TableCell>
+                                                <TableCell align="left"><button onClick={() => handleStatus(row._id)} className="btn btn-info text-black mb-3">{row.status}</button></TableCell>
+                                            </TableRow>
+                                        ))
+                                        :
+                                        <Spinner style={{margin:'0 auto'}} animation="border" variant="primary" />
+                                    }
                             </TableBody>
                         </Table>
                     </TableContainer>
