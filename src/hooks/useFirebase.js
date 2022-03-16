@@ -9,6 +9,7 @@ import {
   GoogleAuthProvider,
   signInWithPopup,
   updateProfile,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 
 // initialize firebase app
@@ -118,6 +119,20 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
+  const resetPassword = (email) => {
+    console.log(email);
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        // Password reset email sent!
+        // ..
+      })
+      .catch((error) => {
+        // const errorCode = error.code;
+        // const errorMessage = error.message;
+        // ..
+      });
+  };
+
   const saveUser = (email, displayName, method) => {
     const user = { email, displayName };
     fetch("http://localhost:5000/users", {
@@ -138,6 +153,7 @@ const useFirebase = () => {
     isLoading,
     authError,
     signInWithGoogle,
+    resetPassword,
   };
 };
 

@@ -7,7 +7,7 @@ const ManageProduct = ({ product, handleDeleteProduct, handleEditProduct }) => {
   const { _id, image, name, price, description } = product;
 
   return (
-    <div className="col-12 col-md-4 mb-5 d-flex">
+    <div className="col-12 col-md-6 col-lg-4 mb-5 d-flex">
       <Card className="shadow">
         <div className="overflow-hidden">
           <Card.Img

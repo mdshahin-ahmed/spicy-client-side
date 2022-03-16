@@ -5,9 +5,17 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import "./Login.css";
 import google from "../../../../src/image/google.png";
+import PasswordResetModal from "./PasswordResetModal/PasswordResetModal";
 
 const Login = () => {
-  const { user, loginUser, isLoading, authError, signInWithGoogle } = useAuth();
+  const {
+    user,
+    loginUser,
+    isLoading,
+    authError,
+    signInWithGoogle,
+    resetPassword,
+  } = useAuth();
 
   const [loginData, setLoginData] = useState();
 
@@ -29,6 +37,20 @@ const Login = () => {
   const handleGoogleSignIn = () => {
     signInWithGoogle(location, navigate);
   };
+
+  const handleResetPassword = (e) => {
+    resetPassword(loginData.email);
+    if (!loginData.email) {
+      alert("Please Enter Your Email");
+      return;
+    }
+    handleShow();
+  };
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
   return (
     <div className="login-wrap d-flex justify-content-center align-items-center">
@@ -70,10 +92,18 @@ const Login = () => {
             </Button>
             <br />
             <NavLink style={{ textDecoration: "none" }} to="/register">
-              <Button variant="text" className="register_link mb-4 mt-3">
+              <Button variant="text" className="register_link mb-1 mt-3">
                 New User? Please Register
               </Button>
+              <br />
             </NavLink>
+            <Button
+              onClick={handleResetPassword}
+              variant="text"
+              className="passwordResetLink mb-2"
+            >
+              Forgot Password?
+            </Button>
           </form>
         )}
 
@@ -82,6 +112,7 @@ const Login = () => {
             className="google_login"
             onClick={handleGoogleSignIn}
             variant="contained"
+            style={{ marginBottom: "20px" }}
           >
             {" "}
             <img
@@ -99,12 +130,19 @@ const Login = () => {
             Login successful!
           </Alert>
         )}
-        {authError && (
-          <Alert style={{ color: "red" }} severity="error">
-            {authError}
-          </Alert>
-        )}
+        <div style={{ width: "50%", margin: "0 auto" }}>
+          {authError && (
+            <Alert style={{ color: "red" }} severity="error">
+              {authError}
+            </Alert>
+          )}
+        </div>
       </Container>
+      <PasswordResetModal
+        show={show}
+        handleClose={handleClose}
+        handleShow={handleShow}
+      ></PasswordResetModal>
     </div>
   );
 };
