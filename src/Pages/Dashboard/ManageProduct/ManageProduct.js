@@ -1,8 +1,9 @@
 import React from "react";
 import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import "./ManageProduct.css";
 
-const ManageProduct = ({ product, handleDeleteProduct }) => {
+const ManageProduct = ({ product, handleDeleteProduct, handleEditProduct }) => {
   const { _id, image, name, price, description } = product;
 
   return (
@@ -21,13 +22,21 @@ const ManageProduct = ({ product, handleDeleteProduct }) => {
           <p>Price ${price}</p>
           <Card.Text>{description}</Card.Text>
         </Card.Body>
-        <div className="mb-3">
+        <div className="mb-3 d-flex justify-content-around">
           <button
             className="mt-auto btn btn-danger mb-3"
             onClick={() => handleDeleteProduct(_id)}
           >
             Delete
           </button>
+          <Link to={`/dashboard/manageAllProducts/update/${_id}`}>
+            <button
+              className="mt-auto btn btn-info mb-3"
+              onClick={() => handleEditProduct(_id)}
+            >
+              Edit
+            </button>
+          </Link>
         </div>
       </Card>
     </div>

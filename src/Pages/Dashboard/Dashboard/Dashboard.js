@@ -97,7 +97,7 @@ function Dashboard(props) {
         variant="text"
         className="logout_button"
       >
-        Log Out <i class="fas fa-sign-out-alt"></i>
+        Log Out <i className="fas fa-sign-out-alt"></i>
       </Button>
     </div>
   );
