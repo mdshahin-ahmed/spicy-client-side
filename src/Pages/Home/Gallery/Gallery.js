@@ -14,7 +14,7 @@ const Gallery = () => {
   return (
     <div className="gallery-wrap">
       <div className="mb-5 pt-5 gallery">
-        <h3 className="text-uppercase mb-3">Out gallery</h3>
+        <h3 className="text-uppercase mb-3">Our gallery</h3>
         <hr />
       </div>
       <div className="container-fluid gallery-images">

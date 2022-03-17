@@ -6,7 +6,7 @@ const HomeMenu = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/homeProducts")
+    fetch("https://secret-basin-80045.herokuapp.com/homeProducts")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [products]);

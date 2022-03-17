@@ -7,7 +7,7 @@ const UpdateProduct = () => {
   const [singleProduct, setSingleProduct] = useState({});
 
   useEffect(() => {
-    const url = `http://localhost:5000/menus/${id}`;
+    const url = `https://secret-basin-80045.herokuapp.com/menus/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setSingleProduct(data));
@@ -44,7 +44,7 @@ const UpdateProduct = () => {
   };
 
   const handleUpdate = (e) => {
-    const url = `http://localhost:5000/menus/${id}`;
+    const url = `https://secret-basin-80045.herokuapp.com/menus/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {

@@ -17,7 +17,7 @@ const AddMenu = () => {
     formData.append("description", description);
     formData.append("image", image);
 
-    fetch("http://localhost:5000/menus", {
+    fetch("https://secret-basin-80045.herokuapp.com/menus", {
       method: "POST",
       body: formData,
     })
