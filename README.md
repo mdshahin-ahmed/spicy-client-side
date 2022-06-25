@@ -2,7 +2,9 @@
 
 This project live site link: https://spicy-1.web.app
 
-This project Github Link: https://github.com/mdshahin-ahmed/spicy-client-side
+This project Live site Github Link: https://github.com/mdshahin-ahmed/spicy-client-side
+
+This project Server site Github Link: https://github.com/mdshahin-ahmed/spicy-server-side
 
 ## The benefit of these Projects
 

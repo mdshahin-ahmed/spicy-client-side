@@ -53,12 +53,14 @@ const OrderPlace = () => {
             className="form-control mb-4"
             defaultValue={user.displayName}
             type="text"
+            readOnly
             {...register("userName", { required: true })}
           />
           <input
             className="form-control mb-4"
             defaultValue={user.email}
             type="email"
+            readOnly
             {...register("email")}
           />
           <input
