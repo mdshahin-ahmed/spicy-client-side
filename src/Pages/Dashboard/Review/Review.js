@@ -15,7 +15,7 @@ const Review = () => {
       return;
     }
     axios
-      .post("https://secret-basin-80045.herokuapp.com/reviews", data)
+      .post("https://spicy-server-side.vercel.app/reviews", data)
       .then((res) => {
         if (res.data.insertedId) {
           alert("Added Successfully!");

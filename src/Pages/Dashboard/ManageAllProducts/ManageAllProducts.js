@@ -5,7 +5,7 @@ import ManageProduct from "../ManageProduct/ManageProduct";
 const ManageAllProducts = () => {
   const [menus, setMenus] = useState([]);
   useEffect(() => {
-    fetch("https://secret-basin-80045.herokuapp.com/menus")
+    fetch("https://spicy-server-side.vercel.app/menus")
       .then((res) => res.json())
       .then((data) => setMenus(data));
   }, [menus]);
@@ -14,7 +14,7 @@ const ManageAllProducts = () => {
     console.log(id);
     const proceed = window.confirm("Are you sure, You Want to delete?");
     if (proceed) {
-      const url = `https://secret-basin-80045.herokuapp.com/menus/${id}`;
+      const url = `https://spicy-server-side.vercel.app/menus/${id}`;
       fetch(url, {
         method: "DELETE",
       })

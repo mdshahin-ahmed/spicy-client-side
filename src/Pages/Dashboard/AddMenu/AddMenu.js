@@ -17,7 +17,7 @@ const AddMenu = () => {
     formData.append("description", description);
     formData.append("image", image);
 
-    fetch("https://secret-basin-80045.herokuapp.com/menus", {
+    fetch("https://spicy-server-side.vercel.app/menus", {
       method: "POST",
       body: formData,
     })
