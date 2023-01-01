@@ -7,7 +7,7 @@ const Menus = () => {
   const [menus, setMenus] = useState([]);
 
   useEffect(() => {
-    fetch("https://spicy-server-side.vercel.app/menus")
+    fetch("https://spicy-lntn.onrender.com/menus")
       .then((res) => res.json())
       .then((data) => setMenus(data));
   }, []);

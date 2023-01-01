@@ -17,7 +17,7 @@ const AddMenu = () => {
     formData.append("description", description);
     formData.append("image", image);
 
-    fetch("https://spicy-server-side.vercel.app/menus", {
+    fetch("https://spicy-lntn.onrender.com/menus", {
       method: "POST",
       body: formData,
     })

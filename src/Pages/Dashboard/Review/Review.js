@@ -14,14 +14,12 @@ const Review = () => {
       alert("Please give a ratting value 1 to 5");
       return;
     }
-    axios
-      .post("https://spicy-server-side.vercel.app/reviews", data)
-      .then((res) => {
-        if (res.data.insertedId) {
-          alert("Added Successfully!");
-          reset();
-        }
-      });
+    axios.post("https://spicy-lntn.onrender.com/reviews", data).then((res) => {
+      if (res.data.insertedId) {
+        alert("Added Successfully!");
+        reset();
+      }
+    });
   };
   return (
     <div>

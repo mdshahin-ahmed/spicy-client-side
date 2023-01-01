@@ -6,7 +6,7 @@ const HomeMenu = () => {
   const [products, setProducts] = useState([]);
 
   useEffect(() => {
-    fetch("https://spicy-server-side.vercel.app/homeProducts")
+    fetch("https://spicy-lntn.onrender.com/homeProducts")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [products]);

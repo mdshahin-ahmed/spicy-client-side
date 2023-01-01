@@ -9,7 +9,7 @@ const OrderPlace = () => {
   const { id } = useParams();
 
   useEffect(() => {
-    const url = `https://spicy-server-side.vercel.app/menus/${id}`;
+    const url = `https://spicy-lntn.onrender.com/menus/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((productData) => setProduct(productData));
@@ -23,7 +23,7 @@ const OrderPlace = () => {
     const newData = { ...data, price, name, image, description };
     console.log(newData);
     newData.status = "Pending...";
-    fetch("https://spicy-server-side.vercel.app/orders", {
+    fetch("https://spicy-lntn.onrender.com/orders", {
       method: "POST",
       headers: {
         "content-type": "application/json",
