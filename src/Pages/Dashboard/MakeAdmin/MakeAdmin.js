@@ -11,7 +11,7 @@ const MakeAdmin = () => {
 
   const handleAdminSubmit = (e) => {
     const user = { email };
-    fetch("https://spicy-lntn.onrender.com/users/admin", {
+    fetch("https://spicy-server-side.vercel.app/users/admin", {
       method: "PUT",
       headers: {
         "content-type": "application/json",

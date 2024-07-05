@@ -5,7 +5,8 @@ import SingleReview from "../../Home/SingleReview/SingleReview";
 const Reviews = () => {
   const [reviews, setReviews] = useState([]);
   useEffect(() => {
-    fetch("https://spicy-lntn.onrender.com/reviews")
+    // fetch("https://spicy-server-side.vercel.app/reviews")
+    fetch("https://spicy-server-side.vercel.app/reviews")
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);

@@ -12,7 +12,7 @@ import { Spinner } from "react-bootstrap";
 const ManageOrders = () => {
   const [products, setProducts] = useState([]);
   useEffect(() => {
-    fetch("https://spicy-lntn.onrender.com/orders")
+    fetch("https://spicy-server-side.vercel.app/orders")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, [products]);
@@ -20,7 +20,7 @@ const ManageOrders = () => {
   const handleDeleteProduct = (id) => {
     const proceed = window.confirm("Are you sure, You Want to delete?");
     if (proceed) {
-      const url = `https://spicy-lntn.onrender.com/orders/${id}`;
+      const url = `https://spicy-server-side.vercel.app/orders/${id}`;
       fetch(url, {
         method: "DELETE",
       })
@@ -37,7 +37,7 @@ const ManageOrders = () => {
     const status = {
       status: "Approved",
     };
-    const url = `https://spicy-lntn.onrender.com/orders/${id}`;
+    const url = `https://spicy-server-side.vercel.app/orders/${id}`;
 
     fetch(url, {
       method: "PUT",

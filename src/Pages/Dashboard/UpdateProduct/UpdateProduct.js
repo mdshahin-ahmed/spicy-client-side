@@ -7,7 +7,7 @@ const UpdateProduct = () => {
   const [singleProduct, setSingleProduct] = useState({});
 
   useEffect(() => {
-    const url = `https://spicy-lntn.onrender.com/menus/${id}`;
+    const url = `https://spicy-server-side.vercel.app/menus/${id}`;
     fetch(url)
       .then((res) => res.json())
       .then((data) => setSingleProduct(data));
@@ -44,7 +44,7 @@ const UpdateProduct = () => {
   };
 
   const handleUpdate = (e) => {
-    const url = `https://spicy-lntn.onrender.com/menus/${id}`;
+    const url = `https://spicy-server-side.vercel.app/menus/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
